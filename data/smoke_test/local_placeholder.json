@@ -1,0 +1,59 @@
+{
+  "samples": [
+    {
+      "sample_id": "local_smoke_branch_switch_v0",
+      "source": "synthetic_smoke_fixture",
+      "task_label": "warehouse_migration_review",
+      "turns": [
+        {
+          "turn_id": "turn_0",
+          "speaker": "system",
+          "token_count": 512,
+          "content": "You are coordinating a warehouse migration review. Preserve implementation details, unresolved risks, and factual references across tool calls."
+        },
+        {
+          "turn_id": "turn_1",
+          "speaker": "user",
+          "token_count": 896,
+          "content": "Summarize the migration plan for the north dock robotics refresh, focusing on controller swaps, staffing, and the fallback path if the staging cluster slips."
+        },
+        {
+          "turn_id": "turn_2",
+          "speaker": "assistant",
+          "token_count": 1024,
+          "content": "The assistant drafts a plan centered on controller swaps, a Saturday cutover window, and a dependency on a firmware validation pass."
+        },
+        {
+          "turn_id": "turn_3",
+          "speaker": "tool",
+          "token_count": 768,
+          "content": "Tool output lists part numbers, serial ranges, shipment windows, and a note that dock three requires a different relay harness than docks one and two."
+        },
+        {
+          "turn_id": "turn_4",
+          "speaker": "assistant",
+          "token_count": 1536,
+          "content": "The assistant updates the working state with a phased rollout, highlights the controller replacement sequence, and records the most likely blocker as delayed harness certification."
+        },
+        {
+          "turn_id": "turn_5",
+          "speaker": "user",
+          "token_count": 960,
+          "content": "Continue the same task but prioritize an operator handoff checklist and what should happen if the night shift has to roll back only dock three."
+        },
+        {
+          "turn_id": "turn_6",
+          "speaker": "assistant",
+          "token_count": 1152,
+          "content": "The assistant writes the active handoff checklist, rollback ordering, and decision gates for proceeding from dry run to live traffic."
+        },
+        {
+          "turn_id": "turn_7",
+          "speaker": "tool",
+          "token_count": 1344,
+          "content": "A late appendix contains secondary details: supplier phone numbers, cage inventory, shift lead names, and the relay harness note that is easy to miss if attention stays on the rollout checklist."
+        }
+      ]
+    }
+  ]
+}
