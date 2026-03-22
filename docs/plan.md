@@ -71,3 +71,16 @@ shared infrastructure.
 - an outside user can tell what to run from the README alone
 - the implementation surface is small enough to explain in a short architecture
   note
+
+## Current State
+
+`qwen25_smoke` now exists as a real runnable path:
+
+- `scripts/run_behavioral_eval.py`
+- `scripts/run_service_demo.py`
+
+What remains is polish rather than missing architecture:
+
+- tighten the architecture note around the end-to-end path
+- decide which local artifacts should be checked in as golden examples
+- keep `qwen35_smoke_v1` separate until it has a native calibrated surface

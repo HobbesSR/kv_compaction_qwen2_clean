@@ -38,9 +38,48 @@ Current runnable entry points:
 
 - `python scripts/run_behavioral_eval.py`
   - runs the clean `qwen25_smoke` comparison
+  - writes `artifacts/qwen25_smoke/behavioral_eval_phase2_clean_k6.json`
 - `python scripts/run_service_demo.py`
   - ingests the long context, compacts at the boundary, and opens a small CLI
     for `/compact` vs `/full` answers
+  - writes `artifacts/qwen25_smoke/service_demo_summary.json`
+
+## Verified Local Run
+
+The current nested-repo lane has been exercised locally on the default
+`Qwen/Qwen2.5-3B` config.
+
+Smoke eval:
+
+- command: `PYTHONPATH=src python scripts/run_behavioral_eval.py`
+- artifact: `artifacts/qwen25_smoke/behavioral_eval_phase2_clean_k6.json`
+- current observed summary:
+  - reference: `4/6` central details preserved, `0` hallucination runs
+  - sketch: `4/6` central details preserved, `0` hallucination runs
+  - control: `4/6` central details preserved, `0` hallucination runs
+  - effective compact tokens:
+    - sketch: `54`
+    - control: `60`
+
+Service demo:
+
+- command: `PYTHONPATH=src python scripts/run_service_demo.py`
+- artifact: `artifacts/qwen25_smoke/service_demo_summary.json`
+- current observed summary:
+  - prefix tokens: `7168`
+  - preserved tail: `1024`
+  - captured boundary rows: `28`
+  - monitored observations / query samples: `336 / 336`
+  - compacted heads: `9`
+  - effective compact tokens: `54`
+
+The service demo prints live ingest progress during boundary collection and then
+accepts:
+
+- `/compact <prompt>`
+- `/full <prompt>`
+- `/status`
+- `/quit`
 
 ### 2. Interactive Service Demo
 
