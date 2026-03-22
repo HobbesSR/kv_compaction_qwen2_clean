@@ -277,3 +277,73 @@ class KeySelectionComparison:
 
     def to_serializable(self) -> dict[str, object]:
         return asdict(self)
+
+
+@dataclass
+class BetaFitGroupResult:
+    layer: int
+    head: int
+    selected_keys_fingerprint: str
+    selected_key_count: int
+    train_query_count: int
+    eval_query_count: int
+    design_rank: int
+    condition_number: float | None
+    underdetermined: bool
+    pre_train_mean_abs_rel_error: float
+    post_train_mean_abs_rel_error: float
+    pre_eval_mean_abs_rel_error: float
+    post_eval_mean_abs_rel_error: float
+    pre_eval_mean_abs_log_error: float
+    post_eval_mean_abs_log_error: float
+    beta_min: float
+    beta_max: float
+    beta_mean: float
+    runtime_seconds: float
+    degeneracy_flags: list[str]
+
+
+@dataclass
+class BetaFitResult:
+    sample_id: str
+    boundary_id: str
+    source: str
+    solver: str
+    regularization_strength: float
+    train_fraction: float
+    runtime_seconds: float
+    group_count: int
+    aggregate_pre_eval_mean_abs_rel_error: float
+    aggregate_post_eval_mean_abs_rel_error: float
+    aggregate_post_over_pre_eval_rel_error_ratio: float
+    aggregate_pre_eval_mean_abs_log_error: float
+    aggregate_post_eval_mean_abs_log_error: float
+    aggregate_post_over_pre_eval_log_error_ratio: float
+    improved_eval_rel_group_count: int
+    improved_eval_log_group_count: int
+    underdetermined_group_count: int
+    rank_deficient_group_count: int
+    median_condition_number: float | None
+    max_condition_number: float | None
+    groups: list[BetaFitGroupResult]
+
+    def to_serializable(self) -> dict[str, object]:
+        return asdict(self)
+
+
+@dataclass
+class BetaFitComparison:
+    sample_id: str
+    boundary_id: str
+    sketch_source: str
+    control_source: str
+    sketch_post_eval_mean_abs_rel_error: float
+    control_post_eval_mean_abs_rel_error: float
+    sketch_post_eval_mean_abs_log_error: float
+    control_post_eval_mean_abs_log_error: float
+    relative_error_winner: str
+    log_error_winner: str
+    per_group_deltas: list[dict[str, object]]
+
+    def to_serializable(self) -> dict[str, object]:
+        return asdict(self)
