@@ -435,6 +435,7 @@ def collect_teacher_forced_boundary_collection(
     capture_indices: list[int] | None = None,
     retain_runtime_cache: bool = False,
     materialize_boundary_kv: bool = True,
+    progress_callback=None,
 ) -> BoundaryCollection:
     created_model = False
     if model is None or tokenizer is None:
@@ -454,6 +455,7 @@ def collect_teacher_forced_boundary_collection(
             capture_indices=capture_indices,
             retain_runtime_cache=retain_runtime_cache,
             materialize_boundary_kv=materialize_boundary_kv,
+            progress_callback=progress_callback,
         )
     finally:
         if created_model:
@@ -472,6 +474,7 @@ def _collect_boundary_collection_with_model(
     capture_indices: list[int] | None,
     retain_runtime_cache: bool,
     materialize_boundary_kv: bool,
+    progress_callback,
 ) -> BoundaryCollection:
     import torch
 
@@ -515,6 +518,15 @@ def _collect_boundary_collection_with_model(
                 )
             past_key_values = bulk_outputs.past_key_values
             processed_token_count = chunk_end
+            if progress_callback is not None:
+                progress_callback(
+                    {
+                        "stage": "prefill",
+                        "processed_token_count": int(processed_token_count),
+                        "prefix_token_count": int(prefix_token_count),
+                        "capture_token_count": len(capture_indices),
+                    }
+                )
 
         capture_token_ids = full_input_ids[:, capture_start:capture_end]
         with torch.inference_mode():
@@ -569,6 +581,17 @@ def _collect_boundary_collection_with_model(
 
         past_key_values = capture_outputs.past_key_values
         processed_token_count = capture_end
+        if progress_callback is not None:
+            progress_callback(
+                {
+                    "stage": "capture",
+                    "processed_token_count": int(processed_token_count),
+                    "prefix_token_count": int(prefix_token_count),
+                    "capture_token_count": len(capture_indices),
+                    "monitored_observation_count": len(observations),
+                    "monitored_query_sample_count": len(query_samples),
+                }
+            )
 
     while processed_token_count < prefix_token_count:
         chunk_end = min(prefix_token_count, processed_token_count + int(config.model.prefill_chunk_size))
@@ -582,6 +605,15 @@ def _collect_boundary_collection_with_model(
             )
         past_key_values = bulk_outputs.past_key_values
         processed_token_count = chunk_end
+        if progress_callback is not None:
+            progress_callback(
+                {
+                    "stage": "prefill",
+                    "processed_token_count": int(processed_token_count),
+                    "prefix_token_count": int(prefix_token_count),
+                    "capture_token_count": len(capture_indices),
+                }
+            )
 
     if past_key_values is None:
         raise ValueError("Boundary collection did not produce a final cache.")

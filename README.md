@@ -34,6 +34,14 @@ The first stable result is:
 The clean success criterion is: sketch reproduces the validated reference
 behavior on the local smoke surface from a fresh checkout and config run.
 
+Current runnable entry points:
+
+- `python scripts/run_behavioral_eval.py`
+  - runs the clean `qwen25_smoke` comparison
+- `python scripts/run_service_demo.py`
+  - ingests the long context, compacts at the boundary, and opens a small CLI
+    for `/compact` vs `/full` answers
+
 ### 2. Interactive Service Demo
 
 The second deliverable is not a benchmark. It is a small interactive path that

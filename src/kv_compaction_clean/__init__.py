@@ -10,6 +10,7 @@ from kv_compaction_clean.feature_harvester import harvest_teacher_forced_feature
 from kv_compaction_clean.key_selection import select_keys
 from kv_compaction_clean.model_runtime import build_model_runtime_plan
 from kv_compaction_clean.prototype_bank import build_state_from_observations
+from kv_compaction_clean.service_demo import build_service_demo_session
 
 __all__ = [
     "load_config",
@@ -17,6 +18,7 @@ __all__ = [
     "fit_beta_for_selected_keys",
     "collect_teacher_forced_boundary_collection",
     "run_behavioral_evaluation",
+    "build_service_demo_session",
     "build_model_runtime_plan",
     "harvest_teacher_forced_features",
     "build_state_from_observations",
