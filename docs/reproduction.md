@@ -104,6 +104,16 @@ The clean repo policy is:
 - keep a tiny checked-in summary set under `examples/qwen25_smoke/`
 - document the current observed outputs in this file and the README
 
+Intermediate local artifacts such as:
+
+- `model_runtime_plan.json`
+- `teacher_forced_feature_harvest.json`
+- `prototype_bank.json`
+- `query_coreset.json`
+
+are useful for inspection and debugging, but they are not part of the curated
+checked-in output surface.
+
 If later we want golden artifacts in version control, that should be a small,
 explicitly curated set rather than the entire local output directory.
 

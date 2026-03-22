@@ -34,6 +34,12 @@ The first stable result is:
 The clean success criterion is: sketch reproduces the validated reference
 behavior on the local smoke surface from a fresh checkout and config run.
 
+Current scope note:
+
+- the public clean path uses teacher-forced sparse boundary evidence collection
+- the lower-overhead generation-time streaming observer remains a research-repo
+  result and is not yet merged into this artifact lane
+
 Current runnable entry points:
 
 - `python scripts/run_behavioral_eval.py`
@@ -156,3 +162,8 @@ Small checked-in reference outputs:
 
 - [examples/qwen25_smoke/behavioral_eval_summary.json](./examples/qwen25_smoke/behavioral_eval_summary.json)
 - [examples/qwen25_smoke/service_demo_summary.json](./examples/qwen25_smoke/service_demo_summary.json)
+
+The ignored `artifacts/` directory may contain additional intermediate local
+outputs such as runtime plans, boundary bundles, prototype-bank dumps, and
+query coresets. The checked-in `examples/` directory is the intentionally
+curated public summary surface.

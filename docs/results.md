@@ -13,6 +13,15 @@ This repo currently supports one clean claim:
 It also shows that the same compacted runtime can be used in an interactive
 boundary-triggered demo path.
 
+More precisely, this clean artifact currently demonstrates:
+
+- teacher-forced sparse boundary evidence collection
+- prototype-bank sketching over that boundary evidence
+- comparison against an explicit teacher-forced control query source
+
+It does not yet package the research repo's separate generation-time streaming
+observer result.
+
 ## Current Demonstrated Output
 
 Smoke summary:
@@ -64,5 +73,22 @@ This repo does not currently claim:
 - best-possible runtime optimization
 - universality across model families
 - coverage of the research repo's relational-binding failure analysis
+- that the current clean path is the low-overhead streaming observer path from
+  the research repo
+
+## Streaming Observer Gap
+
+The research repo now contains a stronger systems result: narrow live
+generation-time observation can be run with very low overhead on the tested
+surface. That result is intentionally not folded into this clean repo yet.
+
+This repo's current public story is narrower:
+
+- boundary compaction
+- teacher-forced sparse boundary evidence
+- sketch vs explicit teacher-forced control
+
+That is a legitimate and reproducible baseline, but it is not the final
+service-overhead claim from the research lane.
 
 Those belong to the research repo or later parallel stories.

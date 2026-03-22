@@ -49,6 +49,14 @@ flowchart LR
    - captures sparse query rows at fixed boundary token indices
    - materializes boundary key/value rows from the final cache
 
+Synthetic-only helper:
+
+- `feature_harvester.py`
+  - deterministic hashed observation generator
+  - kept for lightweight substrate tests and early smoke scaffolding
+  - not used as the authoritative model-backed evidence path in the current
+    demonstrated smoke or service runs
+
 3. Sketch state
    - `prototype_bank.py`
    - accumulates query-conditioned observations into a small prototype bank
@@ -106,6 +114,20 @@ The clean repo prefers:
 
 The optimized service work still exists in the research repo. The clean repo
 keeps the protocol and the validated story, not every optimization branch.
+
+## Streaming Gap
+
+The clean repo does not currently package the research repo's generation-time
+streaming observer path. The validated clean artifact demonstrates:
+
+- boundary-triggered compaction
+- teacher-forced sparse boundary evidence collection
+- sketch vs explicit teacher-forced control comparison
+
+It does not yet demonstrate the research repo's separate claim that narrow
+live observation during generation can run at very low overhead. That claim
+remains in the research repo and should be treated as a parallel, not yet
+merged, result.
 
 ## What This Repo Does Not Claim
 

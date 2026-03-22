@@ -1,5 +1,17 @@
 from __future__ import annotations
 
+"""Synthetic feature harvest substrate used only for early/local smoke tests.
+
+This module does not read model attention or hidden states. It generates
+deterministic hashed vectors from sample metadata and a fixed token stride so
+unit tests and early substrate checks can run without a live model pass.
+
+The real model-backed collection path in the clean repo is
+`boundary_collection.py`. Outside readers should treat that module as the
+authoritative evidence-collection implementation for the demonstrated smoke and
+service paths.
+"""
+
 import hashlib
 import json
 import math
