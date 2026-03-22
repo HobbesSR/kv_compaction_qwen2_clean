@@ -44,6 +44,12 @@ Current runnable entry points:
     for `/compact` vs `/full` answers
   - writes `artifacts/qwen25_smoke/service_demo_summary.json`
 
+Installed console entry points:
+
+- `kv-clean-smoke`
+- `kv-clean-demo`
+- `kv-clean-export-examples`
+
 ## Verified Local Run
 
 The current nested-repo lane has been exercised locally on the default
@@ -137,6 +143,7 @@ Additional reader-facing docs:
 
 - [docs/architecture.md](./docs/architecture.md)
 - [docs/reproduction.md](./docs/reproduction.md)
+- [docs/results.md](./docs/results.md)
 
 Small checked-in reference outputs:
 

@@ -9,6 +9,11 @@ description = "Clean smoke-test artifact for KV compaction experiments."
 requires-python = ">=3.9"
 dependencies = ["PyYAML>=6"]
 
+[project.scripts]
+kv-clean-smoke = "kv_compaction_clean.cli:run_smoke_eval"
+kv-clean-demo = "kv_compaction_clean.cli:run_service_demo"
+kv-clean-export-examples = "kv_compaction_clean.cli:export_example_summaries"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 
