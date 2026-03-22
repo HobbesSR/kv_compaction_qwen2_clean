@@ -246,6 +246,20 @@ class QuerySampleBank:
 
 
 @dataclass
+class BoundaryCollection:
+    harvest: FeatureHarvest
+    query_bank: QuerySampleBank
+    boundary_keys: dict[tuple[int, int], list[list[float]]]
+    boundary_values: dict[tuple[int, int], list[list[float]]]
+    boundary_projected_values: dict[tuple[int, int], list[list[float]]]
+    output_targets: dict[tuple[int, int, int], list[float]]
+    runtime_cache: object | None = None
+    capture_token_indices: list[int] | None = None
+    monitored_observation_count: int | None = None
+    monitored_query_sample_count: int | None = None
+
+
+@dataclass
 class SelectedKeyGroup:
     layer: int
     head: int
