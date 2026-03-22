@@ -137,3 +137,8 @@ Additional reader-facing docs:
 
 - [docs/architecture.md](./docs/architecture.md)
 - [docs/reproduction.md](./docs/reproduction.md)
+
+Small checked-in reference outputs:
+
+- [examples/qwen25_smoke/behavioral_eval_summary.json](./examples/qwen25_smoke/behavioral_eval_summary.json)
+- [examples/qwen25_smoke/service_demo_summary.json](./examples/qwen25_smoke/service_demo_summary.json)

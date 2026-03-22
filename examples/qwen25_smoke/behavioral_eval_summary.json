@@ -1,0 +1,40 @@
+{
+  "sample_id": "local_smoke_branch_switch_v0",
+  "boundary_id": "local_smoke_branch_switch_v0:prompt_boundary_0",
+  "prompt_set": "phase2_clean",
+  "keys_per_head": 6,
+  "key_selection_method": "highest_attention",
+  "prompt_labels": [
+    "same_task_handoff_and_rollback",
+    "same_task_rollout_structure",
+    "same_task_appendix_guardrails",
+    "branch_switch_harness_and_appendix",
+    "branch_switch_appendix_only",
+    "branch_switch_tool_references"
+  ],
+  "reference": {
+    "runtime_seconds": 33.071423,
+    "preserved_central_detail_count": 4,
+    "omitted_central_detail_count": 2,
+    "hallucination_run_count": 0,
+    "effective_compact_tokens": 0
+  },
+  "sketch": {
+    "path": "prototype_bank",
+    "runtime_seconds": 33.427049,
+    "preserved_central_detail_count": 4,
+    "omitted_central_detail_count": 2,
+    "hallucination_run_count": 0,
+    "effective_compact_tokens": 54,
+    "compacted_head_count": 9
+  },
+  "control": {
+    "path": "teacher_forced_subsample",
+    "runtime_seconds": 31.943599,
+    "preserved_central_detail_count": 4,
+    "omitted_central_detail_count": 2,
+    "hallucination_run_count": 0,
+    "effective_compact_tokens": 60,
+    "compacted_head_count": 10
+  }
+}

@@ -91,7 +91,25 @@ The clean repo policy is:
 
 - check in code, configs, datasets, and docs
 - regenerate artifacts locally from the documented commands
+- keep a tiny checked-in summary set under `examples/qwen25_smoke/`
 - document the current observed outputs in this file and the README
 
 If later we want golden artifacts in version control, that should be a small,
 explicitly curated set rather than the entire local output directory.
+
+## Checked-In Example Summaries
+
+The repo includes a curated summary pair:
+
+- `examples/qwen25_smoke/behavioral_eval_summary.json`
+- `examples/qwen25_smoke/service_demo_summary.json`
+
+These are derived from the local demonstration artifacts and are intended to be
+small, stable reference outputs.
+
+To refresh them after a new validated run:
+
+```bash
+cd clean_repo
+PYTHONPATH=src python scripts/export_example_summaries.py
+```

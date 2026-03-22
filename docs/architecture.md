@@ -23,6 +23,22 @@ service-shaped compaction loop.
 
 The end-to-end path is:
 
+```mermaid
+flowchart LR
+    A[Config + Context] --> B[Teacher-Forced Boundary Collection]
+    B --> C[Boundary Bundle]
+    C --> D[Prototype Bank]
+    D --> E[Query Coreset]
+    C --> F[Teacher-Forced Control Queries]
+    E --> G[Key Selection]
+    F --> G2[Control Key Selection]
+    G --> H[Compact Runtime Fit]
+    G2 --> H2[Control Runtime Fit]
+    H --> I[Smoke Evaluation]
+    H --> J[Service Demo]
+    H2 --> I
+```
+
 1. Config and context loading
    - `config.py`
    - `context_loader.py`
