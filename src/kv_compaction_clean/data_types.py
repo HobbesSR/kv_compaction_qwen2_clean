@@ -217,3 +217,63 @@ class QueryCoreset:
 
     def to_serializable(self) -> dict[str, object]:
         return asdict(self)
+
+
+@dataclass
+class QuerySample:
+    query_id: str
+    layer: int
+    head: int
+    token_index: int
+    prefix_mass_share: float
+    raw_prefix_mass: float
+    query_projection: list[float]
+    raw_query_vector: list[float]
+    source_turn_id: str
+    source_speaker: str
+
+
+@dataclass
+class QuerySampleBank:
+    sample_id: str
+    boundary_id: str
+    query_dim: int
+    sample_count: int
+    samples: list[QuerySample]
+
+    def to_serializable(self) -> dict[str, object]:
+        return asdict(self)
+
+
+@dataclass
+class SelectedKeyGroup:
+    layer: int
+    head: int
+    selected_indices: list[int]
+    selected_scores: list[float]
+    query_count: int
+    total_query_weight: float
+
+
+@dataclass
+class KeySelectionResult:
+    sample_id: str
+    boundary_id: str
+    source: str
+    keys_per_head: int
+    groups: list[SelectedKeyGroup]
+
+    def to_serializable(self) -> dict[str, object]:
+        return asdict(self)
+
+
+@dataclass
+class KeySelectionComparison:
+    sample_id: str
+    boundary_id: str
+    sketch_source: str
+    control_source: str
+    overlap_by_group: list[dict[str, object]]
+
+    def to_serializable(self) -> dict[str, object]:
+        return asdict(self)
