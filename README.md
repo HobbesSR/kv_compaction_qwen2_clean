@@ -132,3 +132,8 @@ This path should feel service-shaped even if it is still local and offline.
 
 See [docs/plan.md](./docs/plan.md) for migration order and
 [docs/repo_contract.md](./docs/repo_contract.md) for scope boundaries.
+
+Additional reader-facing docs:
+
+- [docs/architecture.md](./docs/architecture.md)
+- [docs/reproduction.md](./docs/reproduction.md)
