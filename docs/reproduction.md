@@ -9,12 +9,22 @@ The clean repo currently assumes:
 - `transformers`
 - `PyYAML`
 
-Install editable local deps from the nested repo root:
+Recommended install:
 
 ```bash
 cd clean_repo
-pip install -e .
+python3 -m pip install . --user
 ```
+
+This installs the console entry points:
+
+- `kv-clean-smoke`
+- `kv-clean-demo`
+- `kv-clean-export-examples`
+
+Editable installs may depend on a newer `pip` than the one available in some
+older environments. If `python3 -m pip install -e .` falls back to legacy
+`setup.py develop` and fails, use the standard install command above.
 
 ## Smoke Result
 
@@ -22,7 +32,7 @@ Run:
 
 ```bash
 cd clean_repo
-PYTHONPATH=src python scripts/run_behavioral_eval.py
+kv-clean-smoke
 ```
 
 Output artifact:
@@ -55,7 +65,7 @@ Run:
 
 ```bash
 cd clean_repo
-PYTHONPATH=src python scripts/run_service_demo.py
+kv-clean-demo
 ```
 
 The demo prints ingest progress during boundary collection, writes:
@@ -111,5 +121,5 @@ To refresh them after a new validated run:
 
 ```bash
 cd clean_repo
-PYTHONPATH=src python scripts/export_example_summaries.py
+kv-clean-export-examples
 ```

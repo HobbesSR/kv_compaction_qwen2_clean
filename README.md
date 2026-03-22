@@ -50,6 +50,13 @@ Installed console entry points:
 - `kv-clean-demo`
 - `kv-clean-export-examples`
 
+Recommended install:
+
+```bash
+cd clean_repo
+python3 -m pip install . --user
+```
+
 ## Verified Local Run
 
 The current nested-repo lane has been exercised locally on the default
