@@ -157,3 +157,36 @@ class LoadedContextSample:
 
     def to_serializable(self) -> dict[str, object]:
         return asdict(self)
+
+
+@dataclass
+class FeatureObservation:
+    token_index: int
+    layer: int
+    head: int
+    tap_point: str
+    query_projection: list[float]
+    prefix_mass_share: float
+    raw_prefix_mass: float
+    output_projection: list[float]
+    source_turn_id: str = ""
+    source_speaker: str = ""
+
+
+@dataclass
+class FeatureHarvest:
+    sample_id: str
+    boundary_id: str
+    logical_context_tokens: int
+    physical_context_tokens: int
+    feature_granularity: str
+    tap_point: str
+    query_projection_dim: int
+    output_projection_dim: int
+    observed_layers: list[int]
+    observed_heads: list[int]
+    observation_count: int
+    observations: list[FeatureObservation]
+
+    def to_serializable(self) -> dict[str, object]:
+        return asdict(self)
