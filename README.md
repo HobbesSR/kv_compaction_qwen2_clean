@@ -118,23 +118,21 @@ This path should feel service-shaped even if it is still local and offline.
 - only validated surfaces move here
 - one default path first, variants second
 - paper baselines are explicit controls, not hidden inside the main method
-- Qwen2.5 and Qwen3.5 are parallel stories sharing infrastructure, not one
-  prompt surface forced onto both
+- this repo is the Qwen2.5 clean lane, not an umbrella for every model family
 
-## Planned Tracks
+## Public Tracks
 
 - `qwen25_smoke`
   - first writeup-quality story
   - validated local result
   - Qwen2.5-3B
-- `qwen35_smoke_v1`
-  - native evaluation surface
-  - same compaction protocol
-  - overlap prompts used only for continuity checks
 - `service_demo`
   - interactive local path
   - visible context ingestion and compaction boundary
   - minimal UI/CLI before any heavier front-end work
+
+The parallel Qwen3.5 clean lane now lives in the sibling `qwen35_clean/`
+repository rather than as a future track inside this repo.
 
 ## Layout
 

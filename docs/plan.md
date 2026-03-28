@@ -29,12 +29,6 @@ The second story is `service_demo`:
 This should demonstrate service viability qualitatively, even before any richer
 front-end layer exists.
 
-## Parallel Story
-
-`qwen35_smoke_v1` is allowed in the clean repo once it is natively calibrated.
-It is not an appendix to `qwen25_smoke`; it is a parallel evaluation story with
-shared infrastructure.
-
 ## Migration Order
 
 1. `qwen25_smoke` extraction
@@ -51,10 +45,6 @@ shared infrastructure.
    - visible ingestion progress
    - boundary compaction event
    - continued answering
-3. `qwen35_smoke_v1`
-   - native prompt surface
-   - native model configs
-   - overlap prompts only for continuity checks
 
 ## Explicit Non-Goals
 
@@ -83,4 +73,4 @@ What remains is polish rather than missing architecture:
 
 - tighten the architecture note around the end-to-end path
 - decide which local artifacts should be checked in as golden examples
-- keep `qwen35_smoke_v1` separate until it has a native calibrated surface
+- keep this repo focused on the Qwen2.5 clean story
